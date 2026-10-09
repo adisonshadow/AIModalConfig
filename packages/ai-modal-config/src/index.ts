@@ -1,6 +1,18 @@
 export { AiModelConfigProvider } from './AiModelConfigProvider';
 export type { AiModelConfigProviderProps } from './AiModelConfigProvider';
+export type { ColorScheme } from './colorScheme';
 export { AiModelSettingsPanel } from './AiModelSettingsPanel';
+export {
+  AiModelAddProvider,
+  AiModelChoosedSelect,
+  AiModelCapabilityPicker,
+  AiModelCapabilityCatalog,
+  AiModelCapabilitySetting,
+  AiModelIoCatalog,
+  AiModelIoSetting,
+  AiProviderChoosedList,
+  AiModelThemeSwitch,
+} from './sections';
 export { defaultCatalog } from './catalog';
 export type { ModelCatalog } from './catalog';
 export { localStorageModelStorage, LOCAL_STORAGE_KEY } from './storage';

@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { App } from 'antd';
+import { ColorSchemeRoot, type ColorScheme } from './colorScheme';
 import { AiModelConfigContext } from './context';
+import { ProviderWorkspaceRoot } from './providerWorkspaceContext';
 import type { ModelCatalog } from './catalog';
 import { migrateModelsCapabilityKeys } from './logic/migrateModelCapabilityKeys';
 import type { ModelStorage } from './storage';
@@ -12,15 +14,28 @@ export interface AiModelConfigProviderProps {
   /** 本地尚无存档时作为种子；已有存档则忽略 */
   initialModels: AIModelConfig[];
   storage: ModelStorage;
+  /**
+   * 写死主题。传入后面板不显示切换，也不再使用用户上次的选择。
+   * 不传则由面板在自动、深色、浅色之间切换。
+   */
+  theme?: ColorScheme;
   children: ReactNode;
 }
 
-export function AiModelConfigProvider({
+export function AiModelConfigProvider({ theme, ...props }: AiModelConfigProviderProps) {
+  return (
+    <ColorSchemeRoot theme={theme}>
+      <AiModelConfigProviderInner {...props} />
+    </ColorSchemeRoot>
+  );
+}
+
+function AiModelConfigProviderInner({
   catalog,
   initialModels,
   storage,
   children,
-}: AiModelConfigProviderProps) {
+}: Omit<AiModelConfigProviderProps, 'theme'>) {
   const { message } = App.useApp();
   const [models, setModels] = useState<AIModelConfig[]>([]);
   const [ready, setReady] = useState(false);
@@ -79,5 +94,9 @@ export function AiModelConfigProvider({
     [catalog, models, ready],
   );
 
-  return <AiModelConfigContext.Provider value={value}>{children}</AiModelConfigContext.Provider>;
+  return (
+    <AiModelConfigContext.Provider value={value}>
+      <ProviderWorkspaceRoot>{children}</ProviderWorkspaceRoot>
+    </AiModelConfigContext.Provider>
+  );
 }

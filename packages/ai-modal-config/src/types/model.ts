@@ -6,36 +6,29 @@
 export interface CapabilityTag {
   key: string;
   label: string;
+  /** 可空。对应 modelIoIcons 里的逻辑键 */
+  icon?: string;
 }
 
 /** 预设能力 tag（key | label） */
 export const CAPABILITY_TAGS: CapabilityTag[] = [
+  { key: 'agent_orchestration', label: '通用Agent', icon: 'gemini' },
   { key: 'draw', label: '绘图' },
   { key: 'matting', label: '抠图' },
   { key: 'sprite', label: '生成精灵图' },
-  { key: 'skeleton_skinning', label: '生成骨骼蒙皮' },
-  { key: 'action_script', label: '生成动作脚本' },
-  { key: 'script', label: '生成剧本' },
   { key: 'novel', label: '小说创作' },
-  { key: 'voice_over', label: '生成配音' },
+  { key: 'voice_over', label: '配音' },
   { key: 'voice_design', label: '音色设计' },
   { key: 'voice_enrollment', label: '音色复制' },
   { key: 'music', label: '生成音乐' },
-  { key: 'sound_effect', label: '生成语音特效' },
-  { key: 'exec_script', label: '生成执行脚本' },
-  { key: 'video', label: '生视频' },
-  { key: 'video_edit', label: '视频编辑' },
+  { key: 'sound_effect', label: '生成声音特效' },
+  { key: 'coding', label: '编程' },
+  { key: 'video', label: '生成视频' },
   { key: 'image_edit', label: '图像编辑' },
-  /** Wan-Image 等可拆分的多能力（可叠加勾选） */
   { key: 'remove_watermark', label: '去水印' },
   { key: 'image_outpaint', label: '扩图' },
   { key: 'image_clarity', label: '图像变清晰' },
-  { key: 'extract_image_elements', label: '提取图像元素' },
-  { key: 'image_camera_angle', label: '镜头与视角' },
-  { key: 'multi_image_fusion', label: '多图融合' },
-  { key: 'interactive_image_edit', label: '交互式图像编辑' },
-  /** 通用智能 Agent 专属能力 Tag */
-  { key: 'agent_orchestration', label: '通用智能' },
+  { key: 'transparent_image', label: '透明通道图片' },
 ];
 
 export interface AIModelConfig {
@@ -66,4 +59,6 @@ export interface AIModelConfig {
   isLocal?: boolean;
   /** MiniMax 音色复刻/上传所需 GroupId（控制台「账户信息」） */
   minimaxGroupId?: string;
+  /** 由供应商配置投影出来的模型，对应 ProviderConfig.id */
+  providerConfigId?: string;
 }

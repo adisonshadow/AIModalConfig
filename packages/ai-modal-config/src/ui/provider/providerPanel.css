@@ -1,0 +1,184 @@
+.aimc-model-choosed-select {
+  margin-bottom: 16px;
+}
+
+.aimc-capability-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.aimc-theme-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.aimc-section {
+  margin-bottom: 28px;
+}
+
+.aimc-provider-switch.ant-switch > .ant-switch-inner {
+  padding-inline: 36px 14px;
+}
+
+.aimc-provider-switch.ant-switch.ant-switch-checked > .ant-switch-inner {
+  padding-inline: 14px 36px;
+}
+
+.aimc-provider-switch.ant-switch .ant-switch-inner-unchecked {
+  margin-top: -32px;
+}
+
+.aimc-provider-switch.ant-switch .aimc-provider-switch-handle::before {
+  border-radius: 50%;
+}
+
+.aimc-section-title {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.aimc-provider-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.aimc-provider-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 64px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--ant-color-border-secondary);
+  background: var(--ant-color-bg-container);
+  color: var(--ant-color-text);
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.aimc-provider-card:hover {
+  border-color: var(--ant-color-primary);
+}
+
+.aimc-provider-card-name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+}
+
+.aimc-config-card {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--ant-color-border-secondary);
+  background: var(--ant-color-bg-container);
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.aimc-config-card:hover {
+  border-color: var(--ant-color-primary);
+}
+
+.aimc-config-models {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 28px;
+  margin-top: 8px;
+}
+
+.aimc-config-model {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.aimc-config-model.is-disabled {
+  color: var(--ant-color-text-secondary);
+}
+
+.aimc-capability-preview {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+}
+
+.aimc-model-capabilities {
+  display: flex;
+  margin-top: 6px;
+}
+
+.aimc-model-form {
+  margin-inline: 16px;
+  padding-top: 16px;
+}
+
+.aimc-model-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--ant-color-border-secondary);
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.aimc-empty-models {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  border: 1px dashed var(--ant-color-border);
+  border-radius: 10px;
+  padding: 16px;
+  color: var(--ant-color-text-secondary);
+}
+
+.aimc-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.aimc-test-alert {
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.aimc-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.aimc-logo-img,
+.aimc-logo-svg,
+.aimc-logo-svg svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.aimc-logo-img {
+  object-fit: contain;
+}
