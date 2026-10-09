@@ -4,6 +4,8 @@
 
 依赖 React 19、antd 6、`@ant-design/icons` 6。
 
+![Demo](https://github.com/adisonshadow/AIModalConfig/blob/main/demo.png?raw=true)
+
 ## 本地运行
 
 ```bash
