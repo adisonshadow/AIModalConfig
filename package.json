@@ -1,0 +1,8 @@
+{
+  "name": "ai-modal-config-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter ai-modal-config-example dev",
+    "test": "pnpm --filter ai-modal-config test"
+  }
+}

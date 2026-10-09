@@ -1,0 +1,33 @@
+.antd-plus-adaptive-tabs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.antd-plus-adaptive-tabs .ant-tabs-nav {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.antd-plus-adaptive-tabs .ant-tabs-content-holder,
+.antd-plus-adaptive-tabs .ant-tabs-body-holder {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.antd-plus-adaptive-tabs-content-no-overflow .ant-tabs-content-holder,
+.antd-plus-adaptive-tabs-content-no-overflow .ant-tabs-body-holder {
+  overflow: hidden;
+}
+
+.antd-plus-adaptive-tabs .ant-tabs-content,
+.antd-plus-adaptive-tabs .ant-tabs-body {
+  height: 100%;
+}
+
+.antd-plus-adaptive-tabs .ant-tabs-tabpane,
+.antd-plus-adaptive-tabs .ant-tabs-content-active {
+  height: 100%;
+  overflow: hidden;
+}
