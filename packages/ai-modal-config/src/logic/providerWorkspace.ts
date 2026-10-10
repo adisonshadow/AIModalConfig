@@ -234,7 +234,7 @@ export function buildProviderTestRequest(
     };
   }
   const path = provider.apiFormat === 'openai_responses' ? 'responses' : 'chat/completions';
-  const url = /\/v1$/.test(base) ? `${base}/${path}` : `${base}/v1/${path}`;
+  const url = /\/v\d+$/.test(base) ? `${base}/${path}` : `${base}/v1/${path}`;
   const body =
     provider.apiFormat === 'openai_responses'
       ? { model: modelId, input: 'ping', max_output_tokens: 16 }

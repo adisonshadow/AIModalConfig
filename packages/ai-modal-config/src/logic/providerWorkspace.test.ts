@@ -59,6 +59,11 @@ describe('provider workspace', () => {
       'deepseek-v4-flash',
     );
     expect(openai.url).toBe('https://api.deepseek.com/v1/chat/completions');
+    const ark = buildProviderTestRequest(
+      provider({ baseUrl: 'https://ark.cn-beijing.volces.com/api/v3', apiFormat: 'openai_chat' }),
+      'doubao-seed-2-1-pro-260915',
+    );
+    expect(ark.url).toBe('https://ark.cn-beijing.volces.com/api/v3/chat/completions');
   });
 
   it('停用的供应商不会投影进模型列表，并替换同 id 的旧记录', () => {

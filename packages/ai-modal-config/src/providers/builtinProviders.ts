@@ -40,6 +40,7 @@ export const BUILTIN_PROVIDERS: BuiltinProvider[] = [
     keyUrl: 'https://platform.minimaxi.com/user-center/basic-information/interface-key',
     models: [
       { modelId: 'MiniMax-M2', inputKeys: ['text'], capabilityKeys: ['agent_orchestration'] },
+      { modelId: 'MiniMax-H3', inputKeys: ['text', 'image', 'video', 'audio'], capabilityKeys: ['video'] },
     ],
   },
   {
@@ -52,18 +53,18 @@ export const BUILTIN_PROVIDERS: BuiltinProvider[] = [
       {
         modelId: 'deepseek-v4-flash',
         inputKeys: ['text'],
-        capabilityKeys: ['action_script', 'script', 'novel', 'exec_script', 'agent_orchestration'],
+        capabilityKeys: ['agent_orchestration', 'novel'],
       },
       {
         modelId: 'deepseek-v4-pro',
         inputKeys: ['text'],
-        capabilityKeys: ['action_script', 'script', 'novel', 'exec_script', 'agent_orchestration'],
+        capabilityKeys: ['agent_orchestration', 'novel'],
       },
     ],
   },
   {
     id: 'aliyun-cn',
-    name: '阿里云百炼（中国）',
+    name: '阿里云百炼',
     baseUrl: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
     apiFormat: 'openai_chat',
     keyUrl: 'https://bailian.console.aliyun.com/?apiKey=1#/api-key',
@@ -71,17 +72,57 @@ export const BUILTIN_PROVIDERS: BuiltinProvider[] = [
       { modelId: 'qwen3.6-plus', inputKeys: ['text', 'image', 'video'], capabilityKeys: ['agent_orchestration'] },
       { modelId: 'qwen3.6-flash', inputKeys: ['text', 'image', 'video'], capabilityKeys: ['agent_orchestration'] },
       { modelId: 'qwen3.6-max-preview', inputKeys: ['text'], capabilityKeys: ['agent_orchestration'] },
+      { modelId: 'qwen-image-2.0', inputKeys: ['text', 'image'], capabilityKeys: ['draw'] },
+      { modelId: 'qwen-image-2.0-pro', inputKeys: ['text', 'image'], capabilityKeys: ['draw'] },
+      { modelId: 'qwen-image-edit-plus', inputKeys: ['text', 'image'], capabilityKeys: ['draw', 'image_edit'] },
+      {
+        modelId: 'wan2.7-image',
+        inputKeys: ['text', 'image'],
+        capabilityKeys: ['draw', 'image_edit', 'matting', 'remove_watermark', 'image_outpaint', 'image_clarity'],
+      },
+      { modelId: 'happyhorse-1.0-t2v', inputKeys: ['text'], capabilityKeys: ['video'] },
+      { modelId: 'happyhorse-1.0-i2v', inputKeys: ['text', 'image'], capabilityKeys: ['video'] },
+      { modelId: 'happyhorse-1.0-r2v', inputKeys: ['text', 'image'], capabilityKeys: ['video'] },
     ],
   },
   {
-    id: 'aliyun-intl',
-    name: '阿里云百炼（国际）',
-    baseUrl: 'https://dashscope-intl.aliyuncs.com/compatible-mode/v1',
+    id: 'volcengine',
+    name: '火山引擎',
+    baseUrl: 'https://ark.cn-beijing.volces.com/api/v3',
     apiFormat: 'openai_chat',
-    keyUrl: 'https://modelstudio.console.alibabacloud.com/#/api-key',
+    keyUrl: 'https://console.volcengine.com/ark/region:ark+cn-beijing/apiKey',
     models: [
-      { modelId: 'qwen3.6-plus', inputKeys: ['text', 'image', 'video'], capabilityKeys: ['agent_orchestration'] },
-      { modelId: 'qwen3.6-flash', inputKeys: ['text', 'image', 'video'], capabilityKeys: ['agent_orchestration'] },
+      {
+        modelId: 'doubao-seed-2-1-pro-260915',
+        contextWindow: 1_024_000,
+        maxOutputTokens: 256_000,
+        inputKeys: ['text', 'image', 'video'],
+        capabilityKeys: ['agent_orchestration', 'novel'],
+      },
+      {
+        modelId: 'doubao-seed-2-1-lite-260915',
+        contextWindow: 1_024_000,
+        maxOutputTokens: 256_000,
+        inputKeys: ['text', 'image', 'video', 'audio'],
+        capabilityKeys: ['agent_orchestration', 'novel'],
+      },
+      {
+        modelId: 'doubao-seedance-2-5-260628',
+        inputKeys: ['text', 'image', 'video', 'audio'],
+        capabilityKeys: ['video'],
+      },
+      {
+        modelId: 'doubao-seedream-5-0-pro-260628',
+        inputKeys: ['text', 'image'],
+        capabilityKeys: ['draw', 'image_edit'],
+      },
+      {
+        modelId: 'doubao-seed-character-260628',
+        contextWindow: 128_000,
+        maxOutputTokens: 32_000,
+        inputKeys: ['text'],
+        capabilityKeys: ['novel'],
+      },
     ],
   },
   {
@@ -91,7 +132,7 @@ export const BUILTIN_PROVIDERS: BuiltinProvider[] = [
     apiFormat: 'anthropic_messages',
     keyUrl: 'https://platform.xiaomimimo.com/#/docs/quick-start/first-api-call',
     models: [
-      { modelId: 'mimo-v2.5-pro', contextWindow: 1_000_000, inputKeys: ['text'], capabilityKeys: ['agent_orchestration'] },
+      { modelId: 'mimo-v2.5-pro', contextWindow: 1_000_000, inputKeys: ['text'], capabilityKeys: ['agent_orchestration','novel'] },
       {
         modelId: 'mimo-v2.5',
         contextWindow: 1_000_000,
@@ -112,17 +153,6 @@ export const BUILTIN_PROVIDERS: BuiltinProvider[] = [
     ],
   },
   {
-    id: 'anthropic',
-    name: 'Anthropic',
-    baseUrl: 'https://api.anthropic.com',
-    apiFormat: 'anthropic_messages',
-    keyUrl: 'https://console.anthropic.com/settings/keys',
-    models: [
-      { modelId: 'claude-sonnet-4-5', contextWindow: 200000, inputKeys: ['text', 'image'], capabilityKeys: ['agent_orchestration'] },
-      { modelId: 'claude-3-5-haiku-latest', contextWindow: 200000, inputKeys: ['text'], capabilityKeys: ['agent_orchestration'] },
-    ],
-  },
-  {
     id: 'xai',
     name: 'xAI',
     baseUrl: 'https://api.x.ai/v1',
@@ -134,20 +164,14 @@ export const BUILTIN_PROVIDERS: BuiltinProvider[] = [
     ],
   },
   {
-    id: 'openrouter',
-    name: 'OpenRouter',
-    baseUrl: 'https://openrouter.ai/api/v1',
+    id: 'ollama',
+    name: '本地 Ollama',
+    baseUrl: 'http://127.0.0.1:11434/v1',
     apiFormat: 'openai_chat',
-    keyUrl: 'https://openrouter.ai/keys',
-    models: [],
-  },
-  {
-    id: 'opencode-go',
-    name: 'OpenCode Go (Chat)',
-    baseUrl: 'https://opencode.ai/zen/v1',
-    apiFormat: 'openai_chat',
-    keyUrl: 'https://opencode.ai/',
-    models: [],
+    models: [
+      { modelId: 'llama3.1', contextWindow: 128_000, inputKeys: ['text'], capabilityKeys: ['agent_orchestration'] },
+      { modelId: 'qwen3.6', contextWindow: 256_000, inputKeys: ['text', 'image'], capabilityKeys: ['agent_orchestration', 'coding'] },
+    ],
   },
 ];
 

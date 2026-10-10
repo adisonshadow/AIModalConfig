@@ -5,6 +5,7 @@ const MARKS: Record<string, { bg: string; fg: string; text: string }> = {
   anthropic: { bg: '#f3f1ea', fg: '#111', text: 'A' },
   openrouter: { bg: '#22c55e', fg: '#052e16', text: 'OR' },
   'opencode-go': { bg: '#e5e5e5', fg: '#111', text: 'OC' },
+  ollama: { bg: '#111111', fg: '#ffffff', text: 'Ol' },
 };
 
 /** 内置供应商 id 和色标文件名不一致时的对照。 */

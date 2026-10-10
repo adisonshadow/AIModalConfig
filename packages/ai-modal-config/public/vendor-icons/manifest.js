@@ -18,6 +18,8 @@ const entries = [
   { file: 'qwen.svg', background: '#ffffff' },
   { file: 'volcengine.svg', background: '#ffffff' },
   { file: 'xiaomimimo.svg', background: '#000000' },
+  { file: 'openai.svg', background: '#000000' },
+  { file: 'comfyui.svg', background: '#000000' },
 ];
 
 function asset(file) {
